@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchPendingHospitals(token);
 
     function fetchPendingHospitals(token) {
-        fetch('http://localhost:3000/admin/pending-hospitals', {
+        fetch('https://shrew-concrete-cobra.ngrok-free.app/admin/pending-hospitals', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Approve hospital function
     window.approveHospital = function (hospitalId) {
-        fetch(`http://localhost:3000/admin/approve-hospital/${hospitalId}`, {
+        fetch(`https://shrew-concrete-cobra.ngrok-free.app/admin/approve-hospital/${hospitalId}`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
