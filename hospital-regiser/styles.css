@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hospital-register-section {
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hospital-register-section h2 {
+    margin-bottom: 20px;
+}
+
+.hospital-register-section form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.hospital-register-section form input,
+.hospital-register-section form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.hospital-register-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#register-status {
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}

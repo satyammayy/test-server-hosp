@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ola Maps with Custom User Location Marker</title>
+
+    <!-- Link to the Ola Maps CSS file -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>OLA Maps with Custom User Location Marker</h1>
+    <a href="index2.html">test distance api</a>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+
+    <!-- Link to the Ola Maps JavaScript SDK file -->
+    <script src="olamaps-js-sdk.umd.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Ola Maps with API key
+            const olaMaps = new OlaMapsSDK.OlaMaps({
+                apiKey: 'nO03xhdbTRnqj4MvBeMff6aA64Ekd7QProAtSD07' // Replace with your actual API key
+            });
+
+            // Default coordinates (center if geolocation fails)
+            const defaultCoords = [77.61648476788898, 12.931423492103944];
+            
+            // Render the map with default coordinates
+            const myMap = olaMaps.init({
+                style: "https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard/style.json",
+                container: 'map',
+                center: defaultCoords, 
+                zoom: 15
+            });
+
+            // Check if geolocation is available and fetch user’s location
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userCoords = [position.coords.longitude, position.coords.latitude];
+                        
+                        // Center map on user's location
+                        myMap.setCenter(userCoords);
+                        myMap.setZoom(15);
+
+                        // Create a custom marker element
+                        const markerElement = document.createElement('div');
+                        markerElement.style.width = '20px';
+                        markerElement.style.height = '20px';
+                        markerElement.style.backgroundColor = 'red';
+                        markerElement.style.borderRadius = '50%';
+                        markerElement.style.position = 'absolute';
+
+                        // Add the custom marker to the map
+                        myMap.getContainer().appendChild(markerElement);
+
+                        // Position the marker on the map at the user's location
+                        myMap.on('move', () => {
+                            const pos = myMap.project(userCoords);
+                            markerElement.style.left = `${pos.x - 10}px`; // Center the marker
+                            markerElement.style.top = `${pos.y - 10}px`;
+                        });
+
+                        console.log("User location obtained:", userCoords);
+                    },
+                    (error) => {
+                        console.error("Error obtaining location:", error.message);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 5000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+</body>
+</html>

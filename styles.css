@@ -1,0 +1,270 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex; /* Add this line to make the header a flex container */
+    justify-content: space-between; /* Add this line to justify the content to the left and right */
+    align-items: center; /* Add this line to center the content vertically */
+}
+
+header h1 {
+    margin: 0;
+}
+
+.user-info {
+    display: flex; /* Use flexbox for the user info section */
+    align-items: center; /* Center avatar and name vertically */
+    margin-left: auto; /* Add this line to push the user info to the right */
+}
+
+#user-avatar {
+    margin-right: 10px; /* Space between avatar and name */
+}
+
+/* Card Styles */
+.card-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping of cards */
+    justify-content: space-around; /* Space cards evenly */
+    margin-top: 20px; /* Space between title and cards */
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 150px; /* Set a width for cards */
+    padding: 15px; /* Internal padding for cards */
+    margin: 10px; /* Space between cards */
+    text-align: center; /* Center text inside cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+.card a {
+    text-decoration: none; /* Remove underline from links */
+    color: #004d99; /* Link color */
+    font-weight: bold; /* Make link text bold */
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px); /* Raise the card slightly on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    overflow-y: auto; /* Enables scrolling for main content */
+    height: calc(100vh - 200px); /* Adjust height to leave space for header and footer */
+}
+
+.register-section{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center; 
+}
+.login-section {
+    display: flex !important; /* Ensures this rule takes precedence */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Center elements horizontally */
+}
+
+.register-section form{
+    width: 300px;
+    background-color: white;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.login-section form {
+    width: 300px;
+    background-color: white;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-section input{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+.login-section input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+
+.register-section button{
+    width: 100%;
+    padding: 10px;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#register-status{
+    color: red;
+    margin-top: 10px;
+    text-align: center; 
+}
+#login-status {
+    color: red;
+    margin-top: 10px;
+    text-align: center; 
+}
+
+footer {
+    background-color: #004d99;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Container for the hospital cards */
+.hospital-list {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Individual card styling */
+.hospital-item {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+/* Hover effect for cards */
+.hospital-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Hospital image styling */
+.hospital-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 20px; /* Space between image and details */
+}
+
+/* Card content styling */
+.hospital-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1; /* Allow details to take available space */
+}
+
+/* Heading styling */
+.hospital-details h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+/* Paragraph styling */
+.hospital-details p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Action button container */
+.hospital-actions {
+    margin-top: 15px;
+}
+
+/* Button styling */
+.hospital-actions .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Link styling inside button */
+.hospital-actions .btn a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Button hover and active effects */
+.hospital-actions .btn:hover {
+    background: linear-gradient(135deg, #66BB6A, #A5D6A7);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.hospital-actions .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+

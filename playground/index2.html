@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Distance to Hospital</title>
+</head>
+<body>
+    <h1>Calculate Distance to Nearest Hospital</h1>
+
+    <script>
+        // Sample hospital data
+        const hospitalData = {
+            "_id": "67268af5b3b28c029bca80da",
+            "name": "Esha Hospital",
+            "address": "Complex, Patelguda Rd, opposite ambedkar statue, Induri, Ibrahimpatnam, Telangana 501506",
+            "latitude": 17.193998072809595,
+            "longitude": 78.64662685740288,
+            "contact": "9863461949",
+            "email": "satyammay123@hospital.com"
+        };
+
+        // Distance Matrix API key
+        const API_KEY = 'nO03xhdbTRnqj4MvBeMff6aA64Ekd7QProAtSD07'; // Replace with your actual API key
+
+        function getDistanceToHospital() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLatitude = position.coords.latitude;
+                    const userLongitude = position.coords.longitude;
+
+                    const hospitalLatitude = hospitalData.latitude;
+                    const hospitalLongitude = hospitalData.longitude;
+
+                    // Construct the Distance Matrix API URL
+                    const apiUrl = `https://api.olamaps.io/routing/v1/distanceMatrix?origins=${userLatitude},${userLongitude}&destinations=${hospitalLatitude},${hospitalLongitude}&api_key=${API_KEY}`;
+
+                    // Make the API call
+                    fetch(apiUrl, {
+                        method: 'GET',
+                        headers: {
+                            'X-Request-Id': 'YOUR_REQUEST_ID' // Optional: Replace with a unique request ID if needed
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Distance and ETA data:", data);
+
+                        // Process and display the distance and ETA information
+                        if (data && data.rows && data.rows[0] && data.rows[0].elements[0]) {
+                            const element = data.rows[0].elements[0];
+                            const distanceInMeters = element.distance;
+                            const durationInSeconds = element.duration;
+
+                            // Convert distance to kilometers and duration to minutes
+                            const distanceInKm = (distanceInMeters / 1000).toFixed(2);
+                            const durationInMinutes = (durationInSeconds / 60).toFixed(2);
+
+                            alert(`Distance to ${hospitalData.name}: ${distanceInKm} km, ETA: ${durationInMinutes} minutes`);
+                        } else {
+                            console.warn("Unexpected data format:", data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error fetching distance data:", error);
+                    });
+                }, error => {
+                    console.error("Error getting user location:", error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Call the function to calculate the distance to the hospital
+        getDistanceToHospital();
+    </script>
+</body>
+</html>

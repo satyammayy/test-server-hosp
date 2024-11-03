@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hospital Sewa - Dashboard</h1>
+        <div class="user-info">
+            <img id="user-avatar" src="" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%; cursor: pointer;">
+            <span id="user-name"></span>
+        </div>
+        <nav>
+            <ul>
+                
+             <li><a href="login.html" id="logout-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-section" id="dashboard-section">
+            <h2>Welcome to Your Dashboard!</h2>
+            <div id="user-info">
+                <p id="welcome-message"></p>
+            </div>
+            <h2> List of Hospitals available:</h2>
+            <div id="hospital-list"></div>
+            <h3>Quick Links</h3>
+            <div class="card-container">
+                <div class="card">
+                    <a href="#">Manage Appointments</a>
+                </div>
+                <div class="card">
+                    <a href="#">View Patient Records</a>
+                </div>
+                <div class="card">
+                    <a href="#">Update Inventory</a>
+                </div>
+                <div class="card">
+                    <a href="#">Generate Reports</a>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Sewa. All rights reserved.</p>
+    </footer>
+
+    <script src="s2.js"></script>
+</body>
+</html>
