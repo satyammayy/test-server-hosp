@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function registerHospital(formData) {
         const statusElement = document.getElementById('register-status');
 
-        fetch('http://localhost:3000/hospital/register-hospital', {
+        fetch('https://shrew-concrete-cobra.ngrok-free.app/register-hospital', {
             method: 'POST',
             body: formData, // Send form data including the image file
         })
