@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('admin-email').value;
         const password = document.getElementById('admin-password').value;
 
-        fetch('http://localhost:3000/admin/login', {
+        fetch('https://shrew-concrete-cobra.ngrok-free.app/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
