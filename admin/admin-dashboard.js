@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Reject hospital function
     window.rejectHospital = function (hospitalId) {
-        fetch(`http://localhost:3000/admin/reject-hospital/${hospitalId}`, {
+        fetch(`https://shrew-concrete-cobra.ngrok-free.app/admin/reject-hospital/${hospitalId}`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
